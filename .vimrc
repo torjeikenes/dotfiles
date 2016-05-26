@@ -1,6 +1,7 @@
 set nocompatible              " required
 filetype off                  " required
 
+" Plugins {{{
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,25 +33,44 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+" }}}
+" Leader {{{
+let mapleader = "\<Space>"
 
-" Split
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>z :wq<CR>
+
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" }}}
+" Colors {{{
+" Use 256 colours (Use this setting only if your terminal supports 256
+" colours)
+set t_Co=256
+colorscheme solarized
+let python_highlight_all=1
+syntax on
+" }}} 
+" Split {{{
 set splitbelow
 set splitright
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
+" }}}
+" Folding {{{
 "Enable folding
 set foldmethod=indent
 set foldlevel=99
 
-" Enable folding with the spacebar
-
+" Enable folding with the leader F
+nnoremap <leader>f za
 let g:SimpylFold_docstring_preview=1
-
+" }}}
+" Tabs & Spaces {{{
 au BufNewFile,BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
@@ -60,68 +80,51 @@ au BufNewFile,BufRead *.py
     \ set autoindent
     \ set fileformat=unix
 
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
 set encoding=utf-8
 
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-let python_highlight_all=1
-syntax on
-
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+" }}}
+" NERDTree {{{
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
+" }}}
+" UI {{{
 set nu
 set rnu
 set cursorline
-
-colorscheme solarized
-
+" }}}
+" Powerline {{{
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Always show statusline
 set laststatus=2
-"
-" " Use 256 colours (Use this setting only if your terminal supports 256
-" colours)
-set t_Co=256
-
-let mapleader = "\<Space>"
-
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <Leader>w :w<CR>
-
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-
+" }}}
+" Search {{{
+" Search with / , replace with cs , n.n. to replace following
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
-
+" }}}
+" Paste {{{
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
-nnoremap <silent> p p`]
+noremap gV `[v`]
+" }}}
+" Navigation {{{
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-" vp doesn't replace paste buffer
-function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
-endfunction
-function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>Repl()
-
+" Enter is G, backspace is gg
 nnoremap <CR> G
 nnoremap <BS> gg
-
-noremap gV `[v`]
-
-map q: :q
-
+" }}}
+" Organization {{{
+set foldmethod=marker
+set foldlevel=0
+set modelines=1
+" }}}
