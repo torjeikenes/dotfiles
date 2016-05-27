@@ -1,5 +1,6 @@
 set nocompatible              " required
 filetype off                  " required
+filetype plugin on
 
 " Plugins {{{
 " set the runtime path to include Vundle and initialize
@@ -28,7 +29,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'terryma/vim-expand-region'
 Plugin 'nathanaelkane/vim-indent-guides'
-
+Plugin 'vimwiki/vimwiki'
+Plugin 'rking/ag.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,6 +99,10 @@ set nu
 set rnu
 set cursorline
 " }}}
+" CTRLP {{{
+let g:ctrlp_show_hidden = 1
+
+" }}}
 " Powerline {{{
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
@@ -127,4 +135,8 @@ nnoremap <BS> gg
 set foldmethod=marker
 set foldlevel=0
 set modelines=1
+" }}}
+" VimWiki {{{
+let g:vimwiki_list = [{'path': '$HOME/Dropbox/notes', "path_html": '~/Dropbox/notes/notes_html/index.html', "syntax": 'markdown', "ext": '.md'}]
+
 " }}}

@@ -6,11 +6,6 @@
 
 TERM='xterm-256color'
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /home/torje/.local/lib/python2.7/site-packages
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
