@@ -132,6 +132,9 @@ nnoremap <C-H> <C-W><C-H>
 " Enter is G, backspace is gg
 nnoremap <CR> G
 nnoremap <BS> gg
+
+" Fixes backspace
+set backspace=2
 " }}}
 " Organization {{{
 set foldmethod=marker
@@ -142,4 +145,9 @@ set modelines=1
 " let g:vimwiki_list = [{'path': '$HOME/Dropbox/notes', "path_html": '~/Dropbox/notes/notes_html/index.html', "syntax": 'markdown', "ext": '.md'}]
 
 let g:vimwiki_list = [{"path": '$HOME/Dropbox/notes', "path_html": '$HOME/Dropbox/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/notes_html/style.css', "custom_wiki2html": '$HOME/Dropbox/notes/vimwiki_md2html/misaka_md2html.py' , "auto_export": 1}]
+" }}}
+" Fonts {{{
+if has('gui_running')
+  set guifont=Consolas:h10
+endif  
 " }}}
