@@ -33,6 +33,8 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'rking/ag.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -137,6 +139,7 @@ set foldlevel=0
 set modelines=1
 " }}}
 " VimWiki {{{
-let g:vimwiki_list = [{'path': '$HOME/Dropbox/notes', "path_html": '~/Dropbox/notes/notes_html/index.html', "syntax": 'markdown', "ext": '.md'}]
+" let g:vimwiki_list = [{'path': '$HOME/Dropbox/notes', "path_html": '~/Dropbox/notes/notes_html/index.html', "syntax": 'markdown', "ext": '.md'}]
 
+let g:vimwiki_list = [{"path": '$HOME/Dropbox/notes', "path_html": '$HOME/Dropbox/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/notes_html/style.css', "custom_wiki2html": '$HOME/Dropbox/notes/vimwiki_md2html/misaka_md2html.py' , "auto_export": 1}]
 " }}}
