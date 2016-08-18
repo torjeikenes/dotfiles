@@ -35,6 +35,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'junegunn/goyo.vim'
+Plugin 'vim-pandoc/vim-pandoc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,6 +48,7 @@ let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>z :wq<CR>
+nnoremap <Leader>g :Goyo<CR>
 
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -78,23 +81,18 @@ let g:SimpylFold_docstring_preview=1
 " }}}
 " Tabs & Spaces {{{
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
     \ set fileformat=unix
 
 set encoding=utf-8
-
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " }}}
 " NERDTree {{{
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-
+map <C-n> :NERDTreeToggle<CR>
 " }}}
 " UI {{{
 set nu
@@ -144,10 +142,14 @@ set modelines=1
 " VimWiki {{{
 " let g:vimwiki_list = [{'path': '$HOME/Dropbox/notes', "path_html": '~/Dropbox/notes/notes_html/index.html', "syntax": 'markdown', "ext": '.md'}]
 
-let g:vimwiki_list = [{"path": '$HOME/Dropbox/notes', "path_html": '$HOME/Dropbox/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/notes_html/style.css', "custom_wiki2html": '$HOME/Dropbox/notes/vimwiki_md2html/misaka_md2html.py' , "auto_export": 1}]
+let g:vimwiki_list = [{"path": '$HOME/Dropbox/skole1617/notes', "path_html": '$HOME/Dropbox/skole1617/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/skole1617/notes_html/style.css', "auto_export": 1}]
+
 " }}}
 " Fonts {{{
 if has('gui_running')
   set guifont=Consolas:h10
 endif  
+" }}}
+" Swap File{{{
+set shortmess+=A
 " }}}

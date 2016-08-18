@@ -121,3 +121,4 @@ if ! shopt -oq posix; then
 fi
 
 
+export PATH="/usr/local/anaconda/bin:$PATH"
