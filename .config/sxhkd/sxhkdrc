@@ -12,7 +12,7 @@ alt + space
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+	bspc quit 1 && pkill lemonpanel && pkill lemonbar
 
 # lock screen
 super + l
@@ -128,3 +128,24 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# Layout malipulation
+#
+
+# Balance tree
+alt + b
+	bspc node @/ -B
+
+# Undo balancing
+bspc alt + ctrl + b
+	bspc node @/ -E
+
+# Mirror and flip leaves of tree
+alt + {comma,period}
+	bspc node @/ -F {horizontal,vertical}
+
+# Rotate leaves of tree
+alt + shift + {comma,period}
+	bspc node @/ -R {90,270}
+
