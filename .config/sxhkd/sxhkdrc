@@ -6,6 +6,10 @@
 alt + Return
 	rxvt-unicode
 
+# terminal with vim
+alt + shift + Return
+	rxvt-unicode -e -vim
+
 # program launcher
 alt + space
 	rofi -show run
@@ -128,3 +132,18 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+#
+#Sound
+#
+
+# Raise volume
+XF86AudioRaiseVolume
+	pactl set-sink-volume 1 +5% 
+
+# Lower volume
+XF86AudioLowerVolume
+	pactl set-sink-volume 1 -5%
+
+# mute volume
+XF86AudioMute
+	pactl set-sink-mute 1 toggle

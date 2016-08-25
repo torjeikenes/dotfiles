@@ -28,7 +28,7 @@ setxkbmap us &
 
 google-chrome &
 
-xautolock -time 4 -locker /usr/local/bin/lock -detectsleep & 
+xautolock -time 5 -locker "/usr/local/bin/lock -p" -detectsleep & 
 
 killall -q notify-osd &
 dunst -config ~/.config/dunstrc &

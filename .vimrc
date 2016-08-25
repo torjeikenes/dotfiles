@@ -142,7 +142,7 @@ set modelines=1
 " VimWiki {{{
 " let g:vimwiki_list = [{'path': '$HOME/Dropbox/notes', "path_html": '~/Dropbox/notes/notes_html/index.html', "syntax": 'markdown', "ext": '.md'}]
 
-let g:vimwiki_list = [{"path": '$HOME/Dropbox/skole1617/notes', "path_html": '$HOME/Dropbox/skole1617/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/skole1617/notes_html/style.css', "auto_export": 1}]
+let g:vimwiki_list = [{"path": '$HOME/Dropbox/skole1617/notes', "path_html": '$HOME/Dropbox/skole1617/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/skole1617/notes_html/style.css'}]
 
 " }}}
 " Fonts {{{
