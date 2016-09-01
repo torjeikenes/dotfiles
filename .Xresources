@@ -35,95 +35,70 @@ dzen2.font:       monospace:pixelsize=10
 dzen2.foreground: #a0a0a0
 dzen2.background: #262626
 
+/* Rofi */
+#define r_bg   #1d2021
+#define r_fg   #ebdbb2
+#define r_hlfg #d65d0e
+
+States: bg, fg, bgalt, hlbg, hlfg
+rofi.color-enabled: true
+rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
+rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
+rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
+! states: background, border
+rofi.color-window: r_bg,#d5c4a1
+
+rofi.separator-style: solid
+rofi.sidebar-mode: true
+rofi.bw: 1
+rofi.columns: 1
+rofi.padding: 16
+
+rofi.yoffset: 0
+rofi.opacity: 80
+rofi.fake-transparency: false
+rofi.location: 0
+rofi.width: 50
+rofi.font: RobotoMono 12
+rofi.lines: 15
+
 !-------------------------------------------------------------------------------
 ! Xft settings
 !-------------------------------------------------------------------------------
 
 Xft.dpi:                    96
-Xft.antialias:              false
+Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
 !-------------------------------------------------------------------------------
-! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
+! Urxvt settings
 !-------------------------------------------------------------------------------
 
-URxvt.depth:                32
-URxvt.geometry:             90x30
-URxvt.transparent:          false
-URxvt.fading:               0
-! URxvt.urgentOnBell:         true
-! URxvt.visualBell:           true
-URxvt.loginShell:           true
-URxvt.saveLines:            50
-URxvt.internalBorder:       3
-URxvt.lineSpace:            0
+URxvt*scrollBar:	false 
 
-! Fonts
-URxvt.allow_bold:           false
-/* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Monospace:pixelsize=12
-URxvt*boldFont: xft:Monospace:pixelsize=12
+URxvt.background: 	#96b4c6
+URxvt.foreground: 	#e0dce6
 
-! Scrollbar
-URxvt.scrollStyle:          rxvt
-URxvt.scrollBar:            false
-
-! Perl extensions
-URxvt.perl-ext-common:      default,matcher
-URxvt.matcher.button:       1
-URxvt.urlLauncher:          google-chrome
-
-! Cursor
-URxvt.cursorBlink:          true
-URxvt.cursorColor:          #657b83
-URxvt.cursorUnderline:      false
-
-! Pointer
-URxvt.pointerBlank:         true
-
-!!Source http://github.com/altercation/solarized
-
-*background: #002b36
-*foreground: #657b83
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
-
-!! black dark/light
-*color0: #073642
-*color8: #002b36
-
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
-
-!! green dark/light
-*color2: #859900
-*color10: #586e75
-
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
-
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
-
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
-
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
-
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+URxvt.color0: 		#583653
+URxvt.color8: 		#5e3c59
+URxvt.color1: 		#b88e85
+URxvt.color9: 		#dcc7c3
+URxvt.color2: 		#85b88e
+URxvt.color10: 		#c3dcc7
+URxvt.color3: 		#aeb885
+URxvt.color11: 		#d7dcc3
+URxvt.color4: 		#8e85b8
+URxvt.color12: 		#c7c3dc
+URxvt.color5: 		#b885ae
+URxvt.color13: 		#dcc3d7
+URxvt.color6: 		#85aeb8
+URxvt.color14: 		#c3d7dc
+URxvt.color7: 		#6e4c6a
+URxvt.color15: 		#765471
+URxvt*cursorColor:	#aaaaaa
+URxvt*transparent: 	true
+URxvt*shading:		70
+URxvt*blurRadius:	7
+URxvt.fading:		30
