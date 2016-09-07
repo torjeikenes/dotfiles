@@ -50,7 +50,7 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>z :wq<CR>
 nnoremap <Leader>g :Goyo<CR>
-nnoremap <Leader>n :set noremap<CR>
+nnoremap <Leader>n :set nospell<CR>
 
 vmap <Leader>y "+y
 vmap <Leader>d "+d
