@@ -117,14 +117,3 @@ rofi.modi: run,file:dotfiles/rofi/rofi-file-browser.sh,ssh,window,
 rofi.tokenize: false
 rofi.sidebar-mode: true
 
-!-------------------------------------------------------------------------------
-! Xft settings
-!-------------------------------------------------------------------------------
-
-!Xft.dpi:                    96
-!Xft.antialias:              true
-!Xft.rgba:                   rgb
-!Xft.hinting:                true
-!Xft.hintstyle:              hintslight
-
-.colorUL:      #528b8b
