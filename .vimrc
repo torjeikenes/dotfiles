@@ -37,6 +37,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'junegunn/goyo.vim'
 Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,6 +50,7 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>z :wq<CR>
 nnoremap <Leader>g :Goyo<CR>
+nnoremap <Leader>n :set nospell<CR>
 
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -62,7 +64,6 @@ vmap <Leader>P "+P
 " Use 256 colours (Use this setting only if your terminal supports 256
 " colours)
 set t_Co=256
-colorscheme solarized
 let python_highlight_all=1
 syntax on
 " }}} 
@@ -144,11 +145,13 @@ set modelines=1
 
 let g:vimwiki_list = [{"path": '$HOME/Dropbox/skole/notes', "path_html": '$HOME/Dropbox/skole/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/skole/notes_html/style.css'}]
 
+let vim_markdown_preview_github=1
 " }}}
 " Fonts {{{
 if has('gui_running')
   set guifont=Consolas:h10
 endif  
+set nospell
 " }}}
 " Swap File{{{
 set shortmess+=A
