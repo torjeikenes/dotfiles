@@ -1,0 +1,35 @@
+#! /bin/sh
+
+sxhkd &
+xfce4-panel &
+nm-applet &
+
+bspc monitor -d chrome term III IV V VI VII VIII communication spotify
+
+bspc config border_width         2
+bspc config window_gap          15
+bspc config top_padding         21
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a google-chrome desktop='^2'
+bspc rule -a Spotify desktop='^10'
+bspc rule -a slack desktop='^9'
+
+compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc -b &
+syndaemon -i 1 -K d &
+sh ~/.fehbg &
+
+setxkbmap us &
+
+google-chrome &
+
+xautolock -time 5 -locker "/usr/local/bin/lock -p" -detectsleep & 
+
+killall -q notify-osd &
+dunst -config ~/.config/dunstrc &
+
