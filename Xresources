@@ -1,0 +1,141 @@
+!---------------------------------------------------
+! urxvt config settings
+!---------------------------------------------------
+*geometry:         80x21
+
+URxvt*font:              xft:Ubuntu Mono:size=12:antiajias=false:hinting=false:autohint=false
+URxvt*boldFont:          xft:Ubuntu Mono:bold:size=12:antialias=false:hinting=false:autohint=false
+
+! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+
+URxvt.savelines:        500
+URxvt*scrollBar:        false
+
+! do not scroll with output
+URxvt*scrollTtyOutput:  false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! scroll a single line
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+
+! clipboard management
+URxvt.perl-ext-common:  default,clipboard
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+
+! dzen2
+dzen2.font:       monospace:pixelsize=10
+dzen2.foreground: #a0a0a0
+dzen2.background: #262626
+
+/* Rofi */
+#define r_bg   #1d2021
+#define r_fg   #ebdbb2
+#define r_hlfg #d65d0e
+
+States: bg, fg, bgalt, hlbg, hlfg
+rofi.color-enabled: true
+rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
+rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
+rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
+! states: background, border
+rofi.color-window: r_bg,#d5c4a1
+
+rofi.separator-style: solid
+rofi.sidebar-mode: true
+rofi.bw: 1
+rofi.columns: 1
+rofi.padding: 16
+
+rofi.yoffset: 0
+rofi.opacity: 80
+rofi.fake-transparency: false
+rofi.location: 0
+rofi.width: 50
+rofi.font: RobotoMono 12
+rofi.lines: 15
+
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+!-------------------------------------------------------------------------------
+! Urxvt settings
+!-------------------------------------------------------------------------------
+
+URxvt*scrollBar:	false 
+
+!URxvt.background: 	#31343F
+!URxvt.foreground: 	#31343F
+
+!URxvt.color0: 		#583653 
+!URxvt.color8: 		#5e3c59
+!URxvt.color1: 		#b88e85
+!URxvt.color9: 		#dcc7c3
+!URxvt.color2: 		#85b88e
+!URxvt.color10: 		#c3dcc7
+!URxvt.color3: 		#aeb885
+!URxvt.color11: 		#d7dcc3
+!URxvt.color4: 		#8e85b8
+!URxvt.color12: 		#c7c3dc
+!URxvt.color5: 		#b885ae
+!URxvt.color13: 		#dcc3d7
+!URxvt.color6: 		#85aeb8
+!URxvt.color14: 		#c3d7dc
+!URxvt.color7: 		#6e4c6a
+!URxvt.color15: 		#765471
+!URxvt*cursorColor:	#aaaaaa
+!URxvt*transparent: 	true
+!URxvt*shading:		20
+!URxvt*blurRadius:	7
+!URxvt.fading:		90
+
+#define darkestgray   #151515
+#define darkergray    #202020
+#define darkgray      #303030
+#define gray          #505050
+#define lightgray     #b0b0b0
+#define lightergray   #d0d0d0
+#define lightestgray  #e0e0e0
+#define white         #f5f5f5
+#define red           #ac4142
+#define orange        #d28445
+#define yellow        #f4bf75
+#define green         #90a959
+#define cyan          #75b5aa
+#define blue          #6a9fb5
+#define magenta       #aa759f
+#define brown         #8f5536
+
+*.foreground:   lightergray
+*.background:   darkestgray
+*.cursorColor:  lightergray
+*.color0:       darkestgray
+*.color1:       red
+*.color2:       green
+*.color3:       yellow
+*.color4:       blue
+*.color5:       magenta
+*.color6:       cyan
+*.color7:       lightergray
+*.color8:       gray
+*.color9:       orange
+*.color10:      darkergray
+*.color11:      darkgray
+*.color12:      lightgray
+*.color13:      lightestgray
+*.color14:      brown
+*.color15:      white
