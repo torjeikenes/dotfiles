@@ -38,6 +38,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'junegunn/goyo.vim'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'joshdick/onedark.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,6 +68,9 @@ vmap <Leader>P "+P
 set t_Co=256
 let python_highlight_all=1
 syntax on
+let g:onedark_termcolors=256
+colorscheme onedark
+
 " }}} 
 " Split {{{
 set splitbelow
