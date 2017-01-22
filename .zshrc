@@ -53,6 +53,8 @@ ZSH_THEME="norm"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git chucknorris command-not-found sudo web-search)
 
+eval "$(thefuck --alias)"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -83,3 +85,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export SLACK_TOKEN="xoxb-53192872787-hsdX37KXlwHq23x9jwU4pyvT"
