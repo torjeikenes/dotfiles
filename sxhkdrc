@@ -99,7 +99,6 @@ alt + {o,i}
 alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-#
 # preselect
 #
 
@@ -148,10 +147,20 @@ XF86AudioLowerVolume
 # mute volume
 XF86AudioMute
 	pactl set-sink-mute 1 toggle
+#
+# Brightness
+#
 
-#
-# Layout malipulation
-#
+# Higher brightness
+XF86MonBrightnessUp
+	xbacklight -inc 10
+
+# Lower Brightness
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+#Layout malipulation
+
 
 # Balance tree
 alt + b
