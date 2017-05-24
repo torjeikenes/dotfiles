@@ -26,7 +26,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'terryma/vim-expand-region'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vimwiki/vimwiki'
@@ -37,9 +36,20 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'junegunn/goyo.vim'
 Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'joshdick/onedark.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'alvan/vim-closetag'
+Plugin 'jplaut/vim-arduino-ino'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'wikitopian/hardmode'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +63,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>z :wq<CR>
 nnoremap <Leader>g :Goyo<CR>
 nnoremap <Leader>n :set nospell<CR>
+nnoremap <Leader>t :NERDTreeToggle<CR>
 
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -71,6 +82,11 @@ syntax on
 let g:onedark_termcolors=256
 colorscheme onedark
 
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+au! BufRead,BufNewFile *.markdown set filetype=mkd
+au! BufRead,BufNewFile *.md       set filetype=mkd
+
 " }}} 
 " Split {{{
 set splitbelow
@@ -86,6 +102,14 @@ nnoremap <leader>f za
 let g:SimpylFold_docstring_preview=1
 " }}}
 " Tabs & Spaces {{{
+set tabstop=4 |
+set softtabstop=4 |
+set shiftwidth=4 |
+set textwidth=79 |
+set expandtab |
+set autoindent |
+set fileformat=unix
+
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -96,6 +120,23 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 set encoding=utf-8
+au BufNewFile,BufRead *.html
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.md
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set fileformat=unix
+
 " }}}
 " NERDTree {{{
 map <C-n> :NERDTreeToggle<CR>
@@ -107,6 +148,8 @@ set cursorline
 " }}}
 " CTRLP {{{
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_map = '<c-p>'
+
 
 " }}}
 " Powerline {{{
@@ -151,6 +194,7 @@ set modelines=1
 let g:vimwiki_list = [{"path": '$HOME/Dropbox/skole/notes', "path_html": '$HOME/Dropbox/skole/notes_html', "syntax": 'markdown', "ext": '.md', "css_file": '$HOME/Dropbox/skole/notes_html/style.css'}]
 
 let vim_markdown_preview_github=1
+let vim_markdown_preview_hotkey= '<leader>p'
 " }}}
 " Fonts {{{
 if has('gui_running')
@@ -160,4 +204,8 @@ set nospell
 " }}}
 " Swap File{{{
 set shortmess+=A
+" }}}
+" Hardmode{{{
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " }}}
