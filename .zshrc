@@ -86,7 +86,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export SLACK_TOKEN="xoxb-53192872787-hsdX37KXlwHq23x9jwU4pyvT"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 alias -g peder="eog -f peder.gif"
