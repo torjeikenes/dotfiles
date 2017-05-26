@@ -49,7 +49,7 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'wikitopian/hardmode'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -79,8 +79,9 @@ vmap <Leader>P "+P
 set t_Co=256
 let python_highlight_all=1
 syntax on
-let g:onedark_termcolors=256
-colorscheme onedark
+" let g:onedark_termcolors=256
+colorscheme gruvbox
+set background=dark
 
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
