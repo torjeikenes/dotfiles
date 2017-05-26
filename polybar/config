@@ -8,12 +8,12 @@
 ;=====================================================
 
 [colors]
-background = #2C180B
-background-alt = #1A0C02
-foreground = #dfdfdf
-foreground-alt = #55
-primary = #1B3314
-secondary = #e60053
+background = #282828
+background-alt = #32302f
+foreground = #fbf1c7
+foreground-alt = #a89984
+primary = #af3a03
+secondary = #001321
 alert = #bd2c40
 
 [global/wm]
