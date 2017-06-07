@@ -62,7 +62,8 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>z :wq<CR>
 nnoremap <Leader>g :Goyo<CR>
-nnoremap <Leader>n :set nospell<CR>
+nnoremap <Leader>n :setlocal spell spelllang=nb<CR>
+nnoremap <Leader>u :setlocal spell spelllang=en_us<CR>
 nnoremap <Leader>t :NERDTreeToggle<CR>
 
 vmap <Leader>y "+y
