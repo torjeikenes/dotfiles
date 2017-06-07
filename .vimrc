@@ -50,7 +50,7 @@ Plugin 'wikitopian/hardmode'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'morhetz/gruvbox'
-
+Plugin 'vim-pencil'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -95,7 +95,7 @@ set splitright
 " }}}
 " Folding {{{
 "Enable folding
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 
 " Enable folding with the leader F
@@ -209,4 +209,14 @@ set shortmess+=A
 " Hardmode{{{
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+" }}}
+" Vim Pencil{{{
+set nocompatible
+filetype plugin on       " may already be in your .vimrc
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
 " }}}
