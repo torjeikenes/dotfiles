@@ -4,8 +4,15 @@ sxhkd &
 #xfce4-panel &
 nm-applet &
 
-bspc monitor eDP1 -d term chrome code IV V VI VII com music
-bspc monitor DP2 -d VGA1 
+if (xrandr | grep "HDMI1 connected" > /dev/null)
+then
+	mons -e right &
+	bspc monitor HDMI1 -d 1 2 3 4 5 
+	bspc monitor eDP1 -d 6 7 8 9 10
+else
+	bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 
+    bspc monitor DP1 -d 10
+fi
 
 bspc config border_width         2
 bspc config window_gap          15
@@ -16,11 +23,13 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
-bspc rule -a Gimp desktop='^5' state=floating follow=on
-bspc rule -a google-chrome desktop='^2'
-bspc rule -a Spotify desktop='^9'
-bspc rule -a Slack desktop='^8'
-bspc rule -a libreoffice desktop='^4'
+bspc rule -a Gimp desktop='5' state=floating follow=on
+bspc rule -a google-chrome desktop='2'
+bspc rule -a Spotify desktop='9'
+bspc rule -a Slack desktop='8'
+bspc rule -a libreoffice desktop='4'
+bspc rule -a tdrop state=floating
+bspc rule -a shutter state=floating
 
 compton --config /home/torje/.config/compton.conf --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc -b &
 syndaemon -i 1 -K d &
@@ -32,12 +41,11 @@ setxkbmap us &
 wmname LG3D &
 
 spotify &
-
 google-chrome &
-
 slack &
 
-xautolock -time 10 -locker "/usr/local/bin/lock -p" -detectsleep & 
+xautolock -time 10 -locker "/usr/local/bin/lock" -detectsleep & 
+#xautolock -time 10 -locker "/home/torje/xkcd-lock/xkcd-lock" -detectsleep & 
 
 killall -q notify-osd &
 dunst -config ~/.config/dunstrc &
@@ -46,3 +54,6 @@ dropbox start &
 $HOME/.config/polybar/launch.sh &
 
 $HOME/.config/bspwm/moveWindow.sh &
+
+
+mons -m &! 

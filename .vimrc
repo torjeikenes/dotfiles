@@ -46,11 +46,12 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'alvan/vim-closetag'
 Plugin 'jplaut/vim-arduino-ino'
 Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'wikitopian/hardmode'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-pencil'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'arcticicestudio/nord-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -81,7 +82,7 @@ set t_Co=256
 let python_highlight_all=1
 syntax on
 " let g:onedark_termcolors=256
-colorscheme gruvbox
+colorscheme onedark
 set background=dark
 
 au BufRead,BufNewFile *.pde set filetype=arduino
@@ -182,6 +183,9 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <CR> G
 nnoremap <BS> gg
 
+" Jump to EOL while in insert
+inoremap <C-e> <C-o>A
+
 " Fixes backspace
 set backspace=2
 " }}}
@@ -215,9 +219,19 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 set nocompatible
 filetype plugin on       " may already be in your .vimrc
 
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+let g:pencil#textwidth = 74
+
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
+  autocmd FileType markdown,md  call pencil#init()
+  autocmd FileType text         call pencil#init({'wrap': 'hard'})
 augroup END
+" }}}
+" Tables{{{
+let g:table_mode_corner_corner = '|'
+let g:table_mode_header_fillchar = '-'
+let g:table_mode_corner='|'
+
+
 " }}}

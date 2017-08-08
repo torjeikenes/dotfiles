@@ -20,7 +20,12 @@ super + Escape
 
 # lock screen
 super + l
-	lock -p
+	/home/torje/xkcd-lock/xkcd-lock
+    #/usr/local/bin/lock
+
+# restart polybar
+super + p
+    $HOME/bin/bspwm_workspces.sh &
 
 # change keyboard layout
 super + n
@@ -96,8 +101,10 @@ alt + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
+#alt + {_,shift + }{1-9,0}
+#	bspc {desktop -f,node -d} '^{1-9,10}'
 alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '{1-9,10}'
 
 # preselect
 #
@@ -131,6 +138,13 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# scratchpad
+#
+alt + e
+    bspc rule -a tdrop -o floating=on; \
+        tdrop -a -w 1362 -y 14 -s dropdown gnome-terminal
 
 #
 #Sound
