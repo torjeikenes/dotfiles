@@ -3,32 +3,44 @@
 !---------------------------------------------------
 *geometry:         80x21
 
-URxvt*font:              xft:Roboto-Mono-for-Powerline:size=12:antiajias=false:hinting=false:autohint=false
-URxvt*boldFont:          xft:Roboto-Mono-Bold-for-Powerline:bold:size=12:antialias=false:hinting=false:autohint=false
 
-! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
-! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+URxvt.font:xft:FantasqueSansMono:pixelsize=15
+URxvt.boldfont:xft:FantasqueSansMono-Bold:pixelsize=15
 
+URxvt.font:xft:iosevka:pixelsize=15
+URxvt.boldfont:xft:iosevka-bold:pixelsize=15
+
+!URxvt.letterSpace: -1
+!
 URxvt.savelines:        500
 URxvt*scrollBar:        false
-
-! do not scroll with output
-URxvt*scrollTtyOutput:  false
-
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+!
+!! do not scroll with output
+!URxvt*scrollTtyOutput:  false
+!
+!! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
 URxvt*scrollWithBuffer: true
-
-! scroll back to the bottom on keypress
+!
+!! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
+!
+!! scroll a single line
+!URxvt.keysym.Shift-Up: command:\033]720;1\007
+!URxvt.keysym.Shift-Down: command:\033]721;1\007
+!
+!! clipboard management
 
-! scroll a single line
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
+!URxvt.perl-lib: $HOME/.urxvt/ext/
 
-! clipboard management
-URxvt.perl-ext-common:  default,clipboard
+URxvt.perl-ext-common:  default,clipboard,font-size
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.keysym.C-equal:  perl:font-size:reset
+URxvt.keysym.C-slash:  perl:font-size:show
 
 ! dzen2
 dzen2.font:       monospace:pixelsize=10
@@ -40,28 +52,49 @@ dzen2.background: #262626
 #define r_fg   #ebdbb2
 #define r_hlfg #d65d0e
 
-States: bg, fg, bgalt, hlbg, hlfg
-rofi.color-enabled: true
-rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
-rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
-rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
-! states: background, border
-rofi.color-window: r_bg,#d5c4a1
+! States: bg, fg, bgalt, hlbg, hlfg
+! rofi.color-enabled: true
+! rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
+! rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
+! rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
+! ! states: background, border
+! rofi.color-window: r_bg,#d5c4a1
+! 
+! rofi.separator-style: solid
+! rofi.sidebar-mode: true
+! rofi.bw: 1
+! rofi.columns: 1
+! rofi.padding: 16
+! 
+! rofi.yoffset: 0
+! rofi.opacity: 80
+! rofi.fake-transparency: false
+! rofi.location: 0
+! rofi.width: 50
+! rofi.font: RobotoMono 12
+! rofi.lines: 15
+! 
+! rofi
+! rofi.padding: 350
+! rofi.fullscreen: true
+! rofi.terminal: termite
+! rofi.font: Inconsolata 30
+! rofi.color-window: rgb:1d1f21, rgb:1d1f21, #1d1f21
+! rofi.color-normal: rgb:F6F9FF, #4A5466, rgb:F6F9FF, rgb:F6F9FF, #b7672d
+! rofi.separator-style: none
 
-rofi.separator-style: solid
-rofi.sidebar-mode: true
-rofi.bw: 1
-rofi.columns: 1
-rofi.padding: 16
-
-rofi.yoffset: 0
-rofi.opacity: 80
-rofi.fake-transparency: false
-rofi.location: 0
-rofi.width: 50
-rofi.font: RobotoMono 12
-rofi.lines: 15
-
+rofi.width: 900
+rofi.padding: 400
+rofi.fullscreen: true
+rofi.terminal: termite
+rofi.lines: 9
+rofi.font: Hack 16
+rofi.color-window: argb:ee2B303B, argb:AA181818, #1818181
+rofi.color-normal: argb:00BF616A, #8FA1B3, argb:00BF616A, argb:00BF616A, #BF616A
+rofi.separator-style: none
+!Xft.dpi: 155
+Xcursor.theme: OSX-ElCap
+Xcursor.size: 20
 !-------------------------------------------------------------------------------
 ! Xft settings
 !-------------------------------------------------------------------------------
@@ -78,64 +111,135 @@ Xft.hintstyle:              hintslight
 
 URxvt*scrollBar:	false 
 
-!URxvt.background: 	#31343F
-!URxvt.foreground: 	#31343F
+! Base16 Default Dark
+! Scheme: Chris Kempson (http://chriskempson.com)
 
-!URxvt.color0: 		#583653 
-!URxvt.color8: 		#5e3c59
-!URxvt.color1: 		#b88e85
-!URxvt.color9: 		#dcc7c3
-!URxvt.color2: 		#85b88e
-!URxvt.color10: 		#c3dcc7
-!URxvt.color3: 		#aeb885
-!URxvt.color11: 		#d7dcc3
-!URxvt.color4: 		#8e85b8
-!URxvt.color12: 		#c7c3dc
-!URxvt.color5: 		#b885ae
-!URxvt.color13: 		#dcc3d7
-!URxvt.color6: 		#85aeb8
-!URxvt.color14: 		#c3d7dc
-!URxvt.color7: 		#6e4c6a
-!URxvt.color15: 		#765471
-!URxvt*cursorColor:	#aaaaaa
-!URxvt*transparent: 	true
-!URxvt*shading:		20
-!URxvt*blurRadius:	7
-!URxvt.fading:		90
+#define base00 #181818
+#define base01 #282828
+#define base02 #383838
+#define base03 #585858
+#define base04 #b8b8b8
+#define base05 #d8d8d8
+#define base06 #e8e8e8
+#define base07 #f8f8f8
+#define base08 #ab4642
+#define base09 #dc9656
+#define base0A #f7ca88
+#define base0B #a1b56c
+#define base0C #86c1b9
+#define base0D #7cafc2
+#define base0E #ba8baf
+#define base0F #a16946
 
-#define darkestgray   #151515
-#define darkergray    #202020
-#define darkgray      #303030
-#define gray          #505050
-#define lightgray     #b0b0b0
-#define lightergray   #d0d0d0
-#define lightestgray  #e0e0e0
-#define white         #f5f5f5
-#define red           #ac4142
-#define orange        #d28445
-#define yellow        #f4bf75
-#define green         #90a959
-#define cyan          #75b5aa
-#define blue          #6a9fb5
-#define magenta       #aa759f
-#define brown         #8f5536
+URxvt*foreground:   base05
+#ifdef background_opacity
+URxvt*background:   [background_opacity]base00
+#else
+URxvt*background:   base00
+#endif
+URxvt*cursorColor:  base05
 
-*.foreground:   lightergray
-*.background:   darkestgray
-*.cursorColor:  lightergray
-*.color0:       darkestgray
-*.color1:       red
-*.color2:       green
-*.color3:       yellow
-*.color4:       blue
-*.color5:       magenta
-*.color6:       cyan
-*.color7:       lightergray
-*.color8:       gray
-*.color9:       orange
-*.color10:      darkergray
-*.color11:      darkgray
-*.color12:      lightgray
-*.color13:      lightestgray
-*.color14:      brown
-*.color15:      white
+URxvt*color0:       base00
+URxvt*color1:       base08
+URxvt*color2:       base0B
+URxvt*color3:       base0A
+URxvt*color4:       base0D
+URxvt*color5:       base0E
+URxvt*color6:       base0C
+URxvt*color7:       base05
+
+URxvt*color8:       base03
+URxvt*color9:       base08
+URxvt*color10:      base0B
+URxvt*color11:      base0A
+URxvt*color12:      base0D
+URxvt*color13:      base0E
+URxvt*color14:      base0C
+URxvt*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+URxvt*color16:      base09
+URxvt*color17:      base0F
+URxvt*color18:      base01
+URxvt*color19:      base02
+URxvt*color20:      base04
+URxvt*color21:      base06
+
+
+XTerm.font:xft:FantasqueSansMono:pixelsize=14
+XTerm.boldfont:xft:FantasqueSansMono-Bold:pixelsize=14
+
+XTerm.font:xft:iosevka:pixelsize=15
+XTerm.boldfont:xft:iosevka-bold:pixelsize=15
+
+!URxvt.letterSpace: -1
+!
+XTerm.savelines:        500
+XTerm*scrollBar:        false
+!
+!! do not scroll with output
+!URxvt*scrollTtyOutput:  false
+!
+!! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+XTerm*scrollWithBuffer: true
+!
+!! scroll back to the bottom on keypress
+XTerm*scrollTtyKeypress: true
+!
+!! scroll a single line
+!URxvt.keysym.Shift-Up: command:\033]720;1\007
+!URxvt.keysym.Shift-Down: command:\033]721;1\007
+!
+!! clipboard management
+
+!URxvt.perl-lib: $HOME/.urxvt/ext/
+
+XTerm.perl-ext-common:  default,clipboard,font-size
+XTerm.keysym.M-c:   perl:clipboard:copy
+XTerm.keysym.M-v:   perl:clipboard:paste
+XTerm.keysym.C-Up:     perl:font-size:increase
+XTerm.keysym.C-Down:   perl:font-size:decrease
+XTerm.keysym.C-S-Up:   perl:font-size:incglobal
+XTerm.keysym.C-S-Down: perl:font-size:decglobal
+XTerm.keysym.C-equal:  perl:font-size:reset
+XTerm.keysym.C-slash:  perl:font-size:show
+
+
+XTerm*foreground:   base05
+#ifdef background_opacity
+XTerm*background:   [background_opacity]base00
+#else
+XTerm*background:   base00
+#endif
+XTerm*cursorColor:  base05
+
+XTerm*color0:       base00
+XTerm*color1:       base08
+XTerm*color2:       base0B
+XTerm*color3:       base0A
+XTerm*color4:       base0D
+XTerm*color5:       base0E
+XTerm*color6:       base0C
+XTerm*color7:       base05
+
+XTerm*color8:       base03
+XTerm*color9:       base08
+XTerm*color10:      base0B
+XTerm*color11:      base0A
+XTerm*color12:      base0D
+XTerm*color13:      base0E
+XTerm*color14:      base0C
+XTerm*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+URxvt*color16:      base09
+URxvt*color17:      base0F
+URxvt*color18:      base01
+URxvt*color19:      base02
+URxvt*color20:      base04
+URxvt*color21:      base06
+
+
+

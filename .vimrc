@@ -52,6 +52,12 @@ Plugin 'morhetz/gruvbox'
 Plugin 'vim-pencil'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'aperezdc/vim-template'
+Plugin 'fmoralesc/vim-pad'
+Plugin 'ap/vim-css-color'
+Plugin 'morganp/vim-projector'
+Plugin 'chriskempson/base16-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -63,7 +69,8 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>z :wq<CR>
 nnoremap <Leader>g :Goyo<CR>
-nnoremap <Leader>n :setlocal spell spelllang=nb<CR>
+nnoremap <Leader>b :setlocal spell spelllang=nb<CR>
+nnoremap <Leader>y :setlocal spell spelllang=nn<CR>
 nnoremap <Leader>u :setlocal spell spelllang=en_us<CR>
 nnoremap <Leader>t :NERDTreeToggle<CR>
 
@@ -79,10 +86,11 @@ vmap <Leader>P "+P
 " Use 256 colours (Use this setting only if your terminal supports 256
 " colours)
 set t_Co=256
+let base16colorspace=256
 let python_highlight_all=1
 syntax on
 " let g:onedark_termcolors=256
-colorscheme onedark
+colorscheme base16-tomorrow-night
 set background=dark
 
 au BufRead,BufNewFile *.pde set filetype=arduino
@@ -91,9 +99,24 @@ au! BufRead,BufNewFile *.markdown set filetype=mkd
 au! BufRead,BufNewFile *.md       set filetype=mkd
 
 " }}} 
+" Cursor {{{
+if &term =~ "xterm\\|rxvt"
+  " use an orange cursor in insert mode
+  let &t_SI = "\<Esc>]12;orange\x7"
+  " use a red cursor otherwise
+  let &t_EI = "\<Esc>]12;grey\x7"
+  silent !echo -ne "\033]12;grey\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
+endif 
+
+" }}}
 " Split {{{
 set splitbelow
 set splitright
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " }}}
 " Folding {{{
 "Enable folding
@@ -112,6 +135,13 @@ set textwidth=79 |
 set expandtab |
 set autoindent |
 set fileformat=unix
+
+"place in vimrc
+"shift line forward (Ctrl-Shift-Tab for backward shift)
+nmap <C-Tab> i_<Esc>mz:set ve=all<CR>o<C-o>`z<Down>_<Esc>:exe "normal >>"<CR>my`z:exe "normal >>"<CR>`y<Up>mz<Down>dd`z:set ve=<CR>i<Del><Right><Esc>
+nmap <C-S-Tab> i_<Esc>mz:set ve=all<CR>o<C-o>`z<Down>_<Esc>:exe "normal <<"<CR>my`zi<Del><Esc>:exe "normal <<"<CR>`y<Up>mz<Down>dd`z:set ve=<CR>:<Del>
+imap <C-Tab> _<Esc>mz:set ve=all<CR>o<C-o>`z<Down>_<Esc>:exe "normal >>"<CR>my`z:exe "normal >>"<CR>`y<Up>mz<Down>dd`z:set ve=<CR>i<Del>
+imap <C-S-Tab> _<Esc>mz:set ve=all<CR>o<C-o>`z<Down>_<Esc>:exe "normal <<"<CR>my`zi<Del><Esc>:exe "normal <<"<CR>`y<Up>mz<Down>dd`z:set ve=<CR>i
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -225,13 +255,33 @@ let g:pencil#textwidth = 74
 augroup pencil
   autocmd!
   autocmd FileType markdown,md  call pencil#init()
-  autocmd FileType text         call pencil#init({'wrap': 'hard'})
+  autocmd FileType text,txt         call pencil#init({'wrap': 'hard'})
 augroup END
 " }}}
 " Tables{{{
 let g:table_mode_corner_corner = '|'
 let g:table_mode_header_fillchar = '-'
 let g:table_mode_corner='|'
+
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+" }}}
+" notes{{{
+let g:pad#dir = "~/notes/notestest"
+let g:pad#local_dir = "notestest"
+let g:pad#default_format = "markdown"
 
 
 " }}}

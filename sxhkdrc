@@ -4,11 +4,11 @@
 
 # terminal emulator
 alt + Return
-	gnome-terminal
+	urxvt
 
 # terminal with vim
 alt + shift + Return
-	rxvt-unicode -e -vim
+	urxvt -e -vim
 
 # program launcher
 alt + space
@@ -23,9 +23,26 @@ super + l
 	/home/torje/xkcd-lock/xkcd-lock
     #/usr/local/bin/lock
 
-# restart polybar
+# extra displays
 super + p
     $HOME/bin/bspwm_workspces.sh &
+
+super + l
+    $HOME/bin/bspwm_workspces.sh &
+
+super + shift + p
+    $HOME/bin/bspwm_workspces.sh d &
+
+super + r
+    $HOME/bin/bspwm_workspces.sh r &
+
+# hide polybar
+super + h
+    killall -q polybar
+
+# show polybar
+super + s
+    $HOME/.config/polybar/launch.sh &
 
 # change keyboard layout
 super + n
@@ -142,7 +159,7 @@ alt + {Left,Down,Up,Right}
 #
 # scratchpad
 #
-alt + e
+#alt + e
     bspc rule -a tdrop -o floating=on; \
         tdrop -a -w 1362 -y 14 -s dropdown gnome-terminal
 

@@ -90,6 +90,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 alias -g peder="eog -f peder.gif"
 
+export PATH=$PATH:$HOME/bin
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
 # Emacs style
@@ -99,3 +100,9 @@ bindkey '^x^e' edit-command-line
 # Vi style:
 # zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
+export WORKSPACE=`git rev-parse --show-toplevel`
+export PATH="${WORKSPACE}/tools/run_in_test}/bin:${PATH}"
+export PYTHONPATH="${WORKSPACE}/tools/run_in_test:${PYTHONPATH}"
+export PATH="${WORKSPACE}/tools/minicamutils}/bin:${PATH}"
+export PYTHONPATH="${WORKSPACE}/tools/minicamutils:${PYTHONPATH}"
+
