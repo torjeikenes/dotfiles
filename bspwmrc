@@ -3,6 +3,7 @@
 sxhkd &
 #xfce4-panel &
 nm-applet &
+blueman-applet &
 
 #if (xrandr | grep "HDMI1 connected" > /dev/null)
 #then
@@ -30,7 +31,7 @@ bspc rule -a Gimp desktop='5' state=floating follow=on
 bspc rule -a google-chrome desktop='2'
 bspc rule -a Spotify desktop='9'
 bspc rule -a Slack desktop='8'
-bspc rule -a libreoffice desktop='4'
+#bspc rule -a libreoffice desktop='4'
 bspc rule -a tdrop state=floating
 bspc rule -a shutter state=floating
 
