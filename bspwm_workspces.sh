@@ -12,10 +12,12 @@ then
     then
         mons -d &
         xinput --set-prop 9 271 1.0
+        xinput --set-prop 12 271 2.5
     else
         bspc monitor HDMI1 -d 1 2 3 4 5 
         bspc monitor eDP1 -d 6 7 8 9 10
         xinput --set-prop 9 271 2.0
+        xinput --set-prop 12 271 4.0
         if [ "$MODE" = "r" ]
         then
             mons -e right &
@@ -30,10 +32,12 @@ then
         echo "hei hei"
         mons -d &
         xinput --set-prop 9 271 1.0
+        xinput --set-prop 12 271 2.5
     else
         bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 
         bspc monitor DP2 -d 10
         xinput --set-prop 9 271 2.5
+        xinput --set-prop 12 271 4.0
         if [ "$MODE" = "r" ]
         then
             mons -e right &
@@ -46,6 +50,7 @@ else
 	bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 
     bspc monitor DP1 -d 10
     xinput --set-prop 9 271 1.0
+    xinput --set-prop 12 271 2.5
 fi
 
 $HOME/.config/polybar/launch.sh &

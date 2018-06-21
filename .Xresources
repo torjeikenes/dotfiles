@@ -52,46 +52,45 @@ dzen2.background: #262626
 #define r_fg   #ebdbb2
 #define r_hlfg #d65d0e
 
-! States: bg, fg, bgalt, hlbg, hlfg
-! rofi.color-enabled: true
-! rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
-! rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
-! rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
-! ! states: background, border
-! rofi.color-window: r_bg,#d5c4a1
-! 
-! rofi.separator-style: solid
-! rofi.sidebar-mode: true
-! rofi.bw: 1
-! rofi.columns: 1
-! rofi.padding: 16
-! 
-! rofi.yoffset: 0
-! rofi.opacity: 80
-! rofi.fake-transparency: false
-! rofi.location: 0
-! rofi.width: 50
-! rofi.font: RobotoMono 12
-! rofi.lines: 15
-! 
-! rofi
-! rofi.padding: 350
-! rofi.fullscreen: true
-! rofi.terminal: termite
-! rofi.font: Inconsolata 30
-! rofi.color-window: rgb:1d1f21, rgb:1d1f21, #1d1f21
-! rofi.color-normal: rgb:F6F9FF, #4A5466, rgb:F6F9FF, rgb:F6F9FF, #b7672d
-! rofi.separator-style: none
+!States: bg, fg, bgalt, hlbg, hlfg
+!rofi.color-enabled: true
+!rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
+!rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
+!rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
+!! states: background, border
+!rofi.color-window: r_bg,#d5c4a1
+!
+!rofi.separator-style: solid
+!rofi.sidebar-mode: true
+!rofi.bw: 1
+!rofi.columns: 1
+!rofi.padding: 16
+!
+!rofi.yoffset: 0
+!rofi.opacity: 80
+!rofi.fake-transparency: false
+!rofi.location: 0
+!rofi.width: 50
+!rofi.font: RobotoMono 12
+!rofi.lines: 15
+!
+!rofi.padding: 350
+!rofi.fullscreen: true
+!rofi.terminal: termite
+!rofi.font: Inconsolata 30
+!rofi.color-window: rgb:1d1f21, rgb:1d1f21, #1d1f21
+!rofi.color-normal: rgb:F6F9FF, #4A5466, rgb:F6F9FF, rgb:F6F9FF, #b7672d
+!rofi.separator-style: none
 
-rofi.width: 900
-rofi.padding: 400
-rofi.fullscreen: true
-rofi.terminal: termite
-rofi.lines: 9
-rofi.font: Hack 16
-rofi.color-window: argb:ee2B303B, argb:AA181818, #1818181
-rofi.color-normal: argb:00BF616A, #8FA1B3, argb:00BF616A, argb:00BF616A, #BF616A
-rofi.separator-style: none
+!rofi.width: 900
+!rofi.padding: 400
+!rofi.fullscreen: true
+!rofi.terminal: termite
+!rofi.lines: 9
+!rofi.font: Hack 16
+!rofi.color-window: argb:ee2B303B, argb:AA181818, #1818181
+!rofi.color-normal: argb:00BF616A, #8FA1B3, argb:00BF616A, argb:00BF616A, #BF616A
+!rofi.separator-style: none
 !Xft.dpi: 155
 Xcursor.theme: OSX-ElCap
 Xcursor.size: 20
@@ -165,81 +164,4 @@ URxvt*color18:      base01
 URxvt*color19:      base02
 URxvt*color20:      base04
 URxvt*color21:      base06
-
-
-XTerm.font:xft:FantasqueSansMono:pixelsize=14
-XTerm.boldfont:xft:FantasqueSansMono-Bold:pixelsize=14
-
-XTerm.font:xft:iosevka:pixelsize=15
-XTerm.boldfont:xft:iosevka-bold:pixelsize=15
-
-!URxvt.letterSpace: -1
-!
-XTerm.savelines:        500
-XTerm*scrollBar:        false
-!
-!! do not scroll with output
-!URxvt*scrollTtyOutput:  false
-!
-!! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-XTerm*scrollWithBuffer: true
-!
-!! scroll back to the bottom on keypress
-XTerm*scrollTtyKeypress: true
-!
-!! scroll a single line
-!URxvt.keysym.Shift-Up: command:\033]720;1\007
-!URxvt.keysym.Shift-Down: command:\033]721;1\007
-!
-!! clipboard management
-
-!URxvt.perl-lib: $HOME/.urxvt/ext/
-
-XTerm.perl-ext-common:  default,clipboard,font-size
-XTerm.keysym.M-c:   perl:clipboard:copy
-XTerm.keysym.M-v:   perl:clipboard:paste
-XTerm.keysym.C-Up:     perl:font-size:increase
-XTerm.keysym.C-Down:   perl:font-size:decrease
-XTerm.keysym.C-S-Up:   perl:font-size:incglobal
-XTerm.keysym.C-S-Down: perl:font-size:decglobal
-XTerm.keysym.C-equal:  perl:font-size:reset
-XTerm.keysym.C-slash:  perl:font-size:show
-
-
-XTerm*foreground:   base05
-#ifdef background_opacity
-XTerm*background:   [background_opacity]base00
-#else
-XTerm*background:   base00
-#endif
-XTerm*cursorColor:  base05
-
-XTerm*color0:       base00
-XTerm*color1:       base08
-XTerm*color2:       base0B
-XTerm*color3:       base0A
-XTerm*color4:       base0D
-XTerm*color5:       base0E
-XTerm*color6:       base0C
-XTerm*color7:       base05
-
-XTerm*color8:       base03
-XTerm*color9:       base08
-XTerm*color10:      base0B
-XTerm*color11:      base0A
-XTerm*color12:      base0D
-XTerm*color13:      base0E
-XTerm*color14:      base0C
-XTerm*color15:      base07
-
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-URxvt*color16:      base09
-URxvt*color17:      base0F
-URxvt*color18:      base01
-URxvt*color19:      base02
-URxvt*color20:      base04
-URxvt*color21:      base06
-
-
 
