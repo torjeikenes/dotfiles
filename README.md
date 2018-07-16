@@ -1,0 +1,6 @@
+# dotfiles
+
+## programs 
+
+* bspwm
+* polybar
