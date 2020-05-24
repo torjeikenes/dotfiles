@@ -1,6 +1,3 @@
 # dotfiles
 
-## programs 
-
-* bspwm
-* polybar
+Not maintained. New dotfiles found [here](https://github.com/torjeikenes/.dotfiles).
